@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Chatroom</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- 將樣式放在單獨的 CSS 文件中 -->
+    <script type="module" src="/index.js"></script><!-- 引入你的 JavaScript 文件 -->
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <h1>歡迎來到我的聊天室</h1>
+            <button id="logout-btn">登出</button>
+        </div>
+        <div id="chat-container">
+            <div id="status-box">Server: <span id="status">-</span> / <span id="online">0</span> 位使用者在線</div>
+            <div id="content"></div>
+            <div id="send-box">
+                <form id="send-form">
+                    <input type="text" name="name" id="name" placeholder="你的暱稱" autocomplete="off">
+                    <input type="text" name="msg" id="msg" placeholder="輸入訊息..." autocomplete="off">
+                    <input type="submit" value="發送">
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('logout-btn').addEventListener('click', async function() {
+            try {
+                const response = await fetch('/logout', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+
+                if (response.ok) {
+                    // 登出成功，重定向到登入頁面
+                    window.location.href = '/login';
+                } else {
+                    console.error('登出失敗');
+                }
+            } catch (error) {
+                console.error('發生錯誤', error);
+            }
+        });
+    </script>
+</body>
+</html>
