@@ -1,0 +1,59 @@
+<!-- register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>註冊</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    form {
+      max-width: 300px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      color: #4caf50;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <form action="/register" method="post">
+    <h2>註冊</h2>
+    <label for="username">帳號：</label>
+    <input type="text" id="username" name="username" required>
+    <br>
+    <label for="password">密碼：</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <button type="submit">註冊</button>
+    <a href="/login">我已經有帳號了</a>
+  </form>
+</body>
+</html>
